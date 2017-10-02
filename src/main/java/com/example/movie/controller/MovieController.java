@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.io.IOException;
 import java.util.List;
@@ -24,6 +25,12 @@ public class MovieController {
 
     // Json to Java
     private ObjectMapper objectMapper = new ObjectMapper();
+
+
+    @GetMapping("/")
+    public ModelAndView index() {
+        return new ModelAndView("redirect:/api/movies");
+    }
 
     /**
      * Add movie
